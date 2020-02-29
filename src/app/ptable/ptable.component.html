@@ -1,0 +1,23 @@
+<div class="wrapper">
+<div class="group">
+    group period
+</div>
+<div class="column-name" *ngFor="let col of colLabels" [title]="col">
+    {{col}}
+</div>
+<div class="row-name" *ngFor="let row of rowLabels" [title]="row">
+    {{row}}
+</div>
+<div class="all-elements">
+    <div class="no-element-space1" > </div>
+    <div class="no-element-space2" > </div>
+<div class="element" *ngFor="let element of elementsData">
+    {{element.symbol}}
+    {{element.number}}
+</div>
+<div class="Lanthanides_Actinides">
+
+</div>
+</div>
+
+</div>
