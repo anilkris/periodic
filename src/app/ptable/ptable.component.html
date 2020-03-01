@@ -6,12 +6,17 @@
     {{col}}
 </div>
 <div class="row-name" *ngFor="let row of rowLabels" [title]="row">
+    <div>
     {{row}}
+    </div>
 </div>
 <div class="all-elements">
     <div class="no-element-space1" > </div>
     <div class="no-element-space2" > </div>
-<div class="element" *ngFor="let element of elementsData; let i = index">
+<div class="element" *ngFor="let element of elementsData; let i = index; "
+[ngClass]="getClassName(element)">
+
+    
     {{element.symbol}}
     {{element.number}}
 </div>

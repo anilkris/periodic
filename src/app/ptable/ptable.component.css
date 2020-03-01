@@ -1,140 +1,190 @@
 .wrapper {
-    display: grid;
-    width: 1600px;
-    height: 800px;
-    grid-template-columns: repeat(19,80px);
-    grid-template-rows: repeat(8,80px);
-    grid-gap: 2px;
+  display: grid;
+  width: 1600px;
+  height: 740px;
+  grid-template-columns: repeat(19, 80px);
+  grid-template-rows: repeat(8, 80px);
+  grid-gap: 2px;
 }
 .group {
-    width: 80px;
-    height: 40px;
-    font-size: 24px;
+  width: 80px;
+  height: 40px;
+  font-size: 24px;
 }
 .column-name {
-    text-align: center;
-    width: 80px;
-    height: 40px;
-    font-size: 28px;
+  text-align: center;
+  width: 80px;
+  height: 40px;
+  font-size: 24px;
 }
 .row-name {
-    text-align: left;
-    grid-column: 1;
-    width: 40px;
-    height: 80px;
-    font-size: 28px;
+  text-align: left;
+  grid-column: 1;
+  width: 40px;
+  height: 80px;
+  font-size: 24px;
+}
+.row-name > div {
+  padding-top: 18px;
 }
 
 .all-elements {
-    display: grid;
-    grid-template-columns: repeat(18,80px);
-    grid-template-rows: repeat(7,80px);
-    grid-gap: 2px;
-    grid-column: 2/20;
-    grid-row: 2/9;
+  display: grid;
+  grid-template-columns: repeat(18, 80px);
+  grid-template-rows: repeat(7, 80px);
+  grid-gap: 2px;
+  grid-column: 2/20;
+  grid-row: 2/9;
 }
 .no-element-space1 {
-    grid-column: 2/18;
-    grid-row: 1/2;
+  grid-column: 2/18;
+  grid-row: 1/2;
 }
 .no-element-space2 {
-    grid-column: 3/13;
-    grid-row: 2/4;
+  grid-column: 3/13;
+  grid-row: 2/4;
 }
-.element, .lanthanide, .actinide {
-    cursor: pointer;
-    position: relative;
-    padding: 10px 20px;
-    background: white;
-    font-size: 28px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    transition: all 0.5s;
+.element,
+.lanthanide,
+.actinide {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  background: white;
+  font-size: 28px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: all 0.5s;
 
-    border-top: 5px solid black;
-    border-bottom: 5px solid black;
-    border-left: 5px solid black;
-    border-right: 5px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
 }
 
-.element:after,.lanthanide:after, .actinide:after {
-   content: " ";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    border: 0px solid #fff;
-    transition: all 0.5s;
-    top: -5px;
-    left: -5px;
-   
+.element:after,
+.lanthanide:after,
+.actinide:after {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 0px solid #fff;
+  transition: all 0.5s;
+  top: -5px;
+  left: -5px;
 }
-.element:before,.lanthanide:before, .actinide:before {
-    transition: all 0.5s;
+.element:before,
+.lanthanide:before,
+.actinide:before {
+  transition: all 0.5s;
 }
-.element:hover, .lanthanide:hover, .actinide:hover {
-    border-top: 5px solid red;
-    border-bottom: 5px solid red;
-    border-right: 5px solid red;
-    border-left: 5px solid red;
+.element:hover,
+.lanthanide:hover,
+.actinide:hover {
+  border-top: 5px solid red;
+  border-bottom: 5px solid red;
+  border-right: 5px solid red;
+  border-left: 5px solid red;
 
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
-.element:hover:before, :hover:after {
-    width: 100%;
-    height: 100%;
+.element:hover:before,
+:hover:after {
+  width: 100%;
+  height: 100%;
 }
 .element:nth-child(59) {
-
-    padding-top: 25px; 
-    padding-right: 0px;
-    padding-left: 0px;
-    font-size: 15px;
+  padding-top: 25px;
+  padding-right: 0px;
+  padding-left: 0px;
+  font-size: 14px;
+  background-color: silver;
 }
 .element:nth-child(77) {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 25px;
+  font-size: 14px;
 
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 25px;
-    font-size: 15px;
+  background-color: gold;
 }
-
 
 .lanthanides_actinides {
+  display: grid;
+  grid-template-columns: repeat(15, 80px);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 2px;
 
-    display: grid;
-
-    grid-template-rows: repeat(2,1fr);
-    justify-content: center;
-    width: 1473px;
-    height: 220px; 
-    border: 1px solid;
-    margin-top: 15px;
+  justify-content: center;
+  width: 1473px;
+  margin-top: 15px;
 }
-.lanthanides{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.lanthanides {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 15;
 
-    width: 1200;
-    height: 80px; 
-    padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(15, 80px);
+  grid-gap: 2px;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+
+  width: 1200;
+  height: 80px;
+  padding: 5px;
 }
-
+.lanthanide {
+  background-color: silver;
+}
+.actinide {
+  background-color: gold;
+}
 
 .actinides {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  grid-row-start: 2;
 
-    width: 1200;
-    height: 80px; 
+  grid-column-start: 1;
+  grid-column-end: 15;
 
-    padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(15, 80px);
+  grid-gap: 2px;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+
+  width: 1200;
+  height: 80px;
+
+  padding: 8px;
+}
+.diatomic_nonmetal {
+  background-color: orangered;
+}
+.noble_gas {
+  background-color: pink;
+}
+.transition_metal {
+  background-color: yellow;
+}
+.alkali_metal {
+  background-color: violet;
+}
+.metalloid {
+  background-color: coral;
+}
+.alkaline_earth_metal {
+  background-color: orange;
+}
+
+.polyatomic_nonmetal {
+  background-color: aquamarine;
 }

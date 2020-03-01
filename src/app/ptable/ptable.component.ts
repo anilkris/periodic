@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ELEMENTS_DATA, ELEMENT } from './periodict-table';
+import { ELEMENTS_DATA } from './periodict-table';
 import { ThrowStmt } from '@angular/compiler';
 
 @Component({
@@ -26,10 +26,9 @@ export class PtableComponent implements OnInit {
       ELEMENTS_DATA.elements.filter(element =>
         this.mainElements(element)
       );
-    this.elementsData[56] =
-     { ...this.elementsData[56], symbol: 'Lanthanides1', number: null };
+    this.elementsData[56] = { ...this.elementsData[56], symbol: 'Lanthanides1', number: null };
 
-    this.elementsData[74] = 
+    this.elementsData[74] =
     { ...this.elementsData[74], symbol: 'Actinides', number: null };
 
     this.lanthanides = ELEMENTS_DATA.elements.filter(element => this.lanthanide(element));
@@ -77,5 +76,34 @@ export class PtableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getClassName(element):string {
+    console.log(element.category);
+
+
+    if (element.category.includes('diatomic nonmetal')) {
+      return 'diatomic_nonmetal';
+    }
+    else if (element.category.includes('noble gas')){
+      return 'noble_gas';
+    }else if(element.category.includes('transition metal')){
+      return 'transition_metal'
+
+    }else if(element.category.includes('alkali metal')){
+      return 'alkali_metal';
+    }
+    else if(element.category.includes('alkaline earth metal')){
+      return 'alkaline_earth_metal';
+    }
+    else if(element.category.includes('metalloid')){
+      return 'metalloid';
+    }
+    else if(element.category.includes('polyatomic nonmetal')){
+      return 'polyatomic_nonmetal';
+    }
+    else {
+      return 'unknown';
+    }
+
+  }
 
 }
