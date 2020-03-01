@@ -11,12 +11,24 @@
 <div class="all-elements">
     <div class="no-element-space1" > </div>
     <div class="no-element-space2" > </div>
-<div class="element" *ngFor="let element of elementsData">
+<div class="element" *ngFor="let element of elementsData; let i = index">
     {{element.symbol}}
     {{element.number}}
 </div>
-<div class="Lanthanides_Actinides">
+<div class="lanthanides_actinides">
+    <div class="lanthanides">
+        <div class="lanthanide" *ngFor="let lanthanide of lanthanides;">
+        {{lanthanide.symbol}}
+        {{lanthanide.number}}
+        </div>
+    </div>
+    <div class="actinides" >
+        <div class="actinide" *ngFor="let actinide of actinides">
+        {{actinide.symbol}}
+        {{actinide.number}}
+        </div>
 
+     </div>
 </div>
 </div>
 

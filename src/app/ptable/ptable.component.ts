@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ELEMENTS_DATA, ELEMENT } from './periodict-table';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-ptable',
@@ -8,6 +9,8 @@ import { ELEMENTS_DATA, ELEMENT } from './periodict-table';
 })
 export class PtableComponent implements OnInit {
   elementsData = [];
+  lanthanides = [];
+  actinides = [];
   colLabels: string[] = [];
   rowLabels: string[] = [];
 
@@ -20,42 +23,44 @@ export class PtableComponent implements OnInit {
     }
 
     this.elementsData =
-          ELEMENTS_DATA.elements.filter(element =>
-            this.mainElements(element)
-         );
+      ELEMENTS_DATA.elements.filter(element =>
+        this.mainElements(element)
+      );
+    this.elementsData[56] =
+     { ...this.elementsData[56], symbol: 'Lanthanides1', number: null };
 
+    this.elementsData[74] = 
+    { ...this.elementsData[74], symbol: 'Actinides', number: null };
+
+    this.lanthanides = ELEMENTS_DATA.elements.filter(element => this.lanthanide(element));
+    this.actinides = ELEMENTS_DATA.elements.filter(element => this.actinide(element));
   }
 
   mainElements(element) {
 
+    if (element.number === 57) {
+      return true;
+    }
+    if (element.number === 89) {
+      return true;
+    }
+    if (element.number === 119) {
+      return false;
+    }
 
-      if (element.number === 57) { 
-        let x = element;
-        x.symbol = 'Lanthanides';
-        x.number = null ;  
-      }
-      if (element.number === 89) { 
-        let x = element;
-        x.symbol = 'Actinides';
-        x.number = null;  
-      }
-
-
-      if(element.number === 119) {
-        return null;
-      }
-
-      if (!this.lanthanide(element) && !this.actinide(element)) {
-         return element;
-      }
+    if (!this.lanthanide(element) && !this.actinide(element)) {
+      return true;
+    } else {
+      return false;
+    }
 
   }
   representLanthanide() {
-    
-        console.log('return represent lanthanides');
+
+    console.log('return represent lanthanides');
     return {
       name: 'Lanthanides',
-      number: 0 
+      number: 0
     };
   }
   lanthanide(element) {
@@ -63,7 +68,7 @@ export class PtableComponent implements OnInit {
       return true;
     }
   }
-   actinide(element) {
+  actinide(element) {
     if (element.number > 88 && element.number < 104) {
       return true;
     }
