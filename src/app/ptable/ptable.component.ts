@@ -13,8 +13,11 @@ export class PtableComponent implements OnInit {
   actinides = [];
   colLabels: string[] = [];
   rowLabels: string[] = [];
+  displayInfo: boolean;
+  displayElement: any;
 
   constructor() {
+    this.displayInfo = false;
     for (let i = 1; i < 19; i++) {
       this.colLabels.push('' + i);
     }
@@ -28,8 +31,7 @@ export class PtableComponent implements OnInit {
       );
     this.elementsData[56] = { ...this.elementsData[56], symbol: 'Lanthanides1', number: null };
 
-    this.elementsData[74] =
-    { ...this.elementsData[74], symbol: 'Actinides', number: null };
+    this.elementsData[74] = { ...this.elementsData[74], symbol: 'Actinides', number: null };
 
     this.lanthanides = ELEMENTS_DATA.elements.filter(element => this.lanthanide(element));
     this.actinides = ELEMENTS_DATA.elements.filter(element => this.actinide(element));
@@ -76,33 +78,43 @@ export class PtableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getClassName(element):string {
-    console.log(element.category);
-
+  getClassName(element): string {
 
     if (element.category.includes('diatomic nonmetal')) {
       return 'diatomic_nonmetal';
-    }
-    else if (element.category.includes('noble gas')){
+    } else if (element.category.includes('noble gas')) {
       return 'noble_gas';
-    }else if(element.category.includes('transition metal')){
-      return 'transition_metal'
-
-    }else if(element.category.includes('alkali metal')){
+    }else if (element.category.includes('post-transition metal')) {
+      return 'post_transition_metal';
+    }else if (element.category.includes('transition metal')) {
+      return 'transition_metal';
+    } else if (element.category.includes('alkali metal')) {
       return 'alkali_metal';
-    }
-    else if(element.category.includes('alkaline earth metal')){
+    } else if (element.category.includes('alkaline earth metal')) {
       return 'alkaline_earth_metal';
-    }
-    else if(element.category.includes('metalloid')){
+    } else if (element.category.includes('metalloid')) {
       return 'metalloid';
-    }
-    else if(element.category.includes('polyatomic nonmetal')){
+    } else if (element.category.includes('polyatomic nonmetal')) {
       return 'polyatomic_nonmetal';
-    }
-    else {
+    } else {
       return 'unknown';
     }
+
+  }
+  showInfo(element) {
+    if((this.displayElement!=element) && (this.displayInfo)) {
+      this.displayElement = element;
+      return;
+    }
+    this.displayInfo = !this.displayInfo;
+    this.displayElement = element;
+
+  }
+  escapeClick() {
+
+    this.displayInfo = false;
+    this.displayElement = null;
+
 
   }
 

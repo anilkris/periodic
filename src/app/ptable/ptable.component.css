@@ -175,11 +175,15 @@
 .transition_metal {
   background-color: yellow;
 }
+
+.post_transition_metal {
+  background-color: green;
+}
 .alkali_metal {
   background-color: violet;
 }
 .metalloid {
-  background-color: coral;
+  background-color: skyblue;
 }
 .alkaline_earth_metal {
   background-color: orange;

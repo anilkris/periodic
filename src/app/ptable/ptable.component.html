@@ -12,14 +12,19 @@
 </div>
 <div class="all-elements">
     <div class="no-element-space1" > </div>
-    <div class="no-element-space2" > </div>
-<div class="element" *ngFor="let element of elementsData; let i = index; "
-[ngClass]="getClassName(element)">
+    <div class="no-element-space2" > 
+        <div *ngIf="displayInfo" >
+            {{displayElement.summary}}
+        </div>
 
-    
+    </div>
+<div class="element" *ngFor="let element of elementsData; let i = index; "
+[ngClass]="getClassName(element)"(click) ="showInfo(element)">
     {{element.symbol}}
     {{element.number}}
+
 </div>
+   
 <div class="lanthanides_actinides">
     <div class="lanthanides">
         <div class="lanthanide" *ngFor="let lanthanide of lanthanides;">
